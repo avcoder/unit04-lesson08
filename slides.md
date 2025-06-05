@@ -303,6 +303,33 @@ Rewrite these endpoints using offset-based pagination with limit and offset
 -->
 
 ---
+layout: image-right
+transition: slide-left
+image: /assets/api.png
+backgroundSize: 400px 270px
+class: text-left
+---
+
+# 10 minute break
+
+🍦 Cool Tips, Trends and Resources:
+- 🔵 [SVG Icons for popular brands](https://simpleicons.org/)
+- 🔄 [Modern CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset/)
+- ⭐ [2024 JavaAscript Rising Stars](https://risingstars.js.org/2024/en)
+- 👨‍💻 [Computer Science Papers](https://newsletter.techworld-with-milan.com/p/computer-science-papers-every-developer)
+- 💾 [Intro to WebAssembly](https://hemath.dev/blog/webassembly/introduction-to-webassembly/)
+- 💽 [GraphQL: API Design](https://www.computer.org/publications/tech-news/trends/graphql)
+
+<br>
+<hr>
+<br>
+
+- 🧪 [Enter anonymous lab questions](https://docs.google.com/forms/d/e/1FAIpQLSevvGARdHQikso-uLqFCO481MABKE5HofuSrlzEPMNQ2ZLykw/viewform?usp=dialog)
+- ℹ️ [Course feedback survey](https://circuitstream.typeform.com/to/ZoyYk7px#course_id=SoftwareAN&instructor=9514)
+
+
+
+---
 transition: slide-left
 ---
 
@@ -320,6 +347,7 @@ Query strings allow clients to specify how to fetch the data — filtering, sort
 | Filter by range             | `/orders?minPrice=10&maxPrice=100` |
 | Sort by field             | `/users?sort=name` |
 | Sort by multiple fields   | `/products?sort=category,-price` |
+
 
 ---
 transition: slide-left
@@ -461,31 +489,6 @@ transition: slide-left
 | **Backend-First Development**   | Build real backend endpoints first, then frontend connects to live API.                              | - Produces working real data early                          | - Slows frontend development<br>- Tight coupling              | Frameworks like Express, Django       |
 | **Frontend-First with Local Mocks** | Develop UI with local mock data in component/state without real API initially.                        | - Rapid prototyping and UI validation                       | - Risk of frontend/backend divergence                          | React state, fixtures, [Storybook](https://storybook.js.org/)      |
 | **Best Practice: Combine Approaches** | Start with API contract, mock endpoints for frontend dev, build real backend incrementally.          | - Maintains agility<br>- Keeps frontend/backend in sync    | - Requires discipline to keep mocks and real API aligned      | Mix of above tools                   |
-
----
-layout: image-right
-transition: slide-left
-image: /assets/api.png
-backgroundSize: 400px 270px
-class: text-left
----
-
-# 10 minute break
-
-🍦 Cool Tips, Trends and Resources:
-- 🔵 [SVG Icons for popular brands](https://simpleicons.org/)
-- 🔄 [Modern CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset/)
-- ⭐ [2024 JavaAscript Rising Stars](https://risingstars.js.org/2024/en)
-- 👨‍💻 [Computer Science Papers](https://newsletter.techworld-with-milan.com/p/computer-science-papers-every-developer)
-- 💾 [Intro to WebAssembly](https://hemath.dev/blog/webassembly/introduction-to-webassembly/)
-- 💽 [GraphQL: API Design](https://www.computer.org/publications/tech-news/trends/graphql)
-
-<br>
-<hr>
-<br>
-
-- 🧪 [Enter anonymous lab questions](https://docs.google.com/forms/d/e/1FAIpQLSevvGARdHQikso-uLqFCO481MABKE5HofuSrlzEPMNQ2ZLykw/viewform?usp=dialog)
-- ℹ️ [Course feedback survey](https://circuitstream.typeform.com/to/ZoyYk7px#course_id=SoftwareAN&instructor=9514)
 
 ---
 transition: slide-left
