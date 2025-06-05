@@ -306,19 +306,26 @@ Rewrite these endpoints using offset-based pagination with limit and offset
 transition: slide-left
 ---
 
-# Exercise: Fix APIs
-Identify issues and refactor APIs using best practices as discussed.
+# Use Clear Query Strings for Sorting and Filtering
+Query strings allow clients to specify how to fetch the data — filtering, sorting, searching, etc.
 
+- ✅ Use explicit, predictable query keys: sort, filter, limit, etc.
+- ✅ Use a - prefix to indicate descending sort (sort=-price)
+- ✅ Keep filter field names consistent with schema
+- ✅ Avoid confusing, ambiguous names like orderByField=1
+- ✅ Document all query parameters clearly in your API docs
 
-| Operation | Method | Endpoint                    |
-| ------ | ------ | --------------------------- |
-| List users | GET    | `/getAllUsers`              |
-| Create user | POST   | `/addNewUser`               |
-| Get user by ID | GET    | `/userById?id=123`          |
-| Delete user | DELETE | `/deleteAUser/123`          |
-| Update user | PUT    | `/updateUserDetails?id=123` |
-| List items | GET    | `/getAllItems?version=1` |
+| Goal                        | Example                            |
+| --------------------------- | ---------------------------------- |
+| Filter by range             | `/orders?minPrice=10&maxPrice=100` |
+| Sort by field             | `/users?sort=name` |
+| Sort by multiple fields   | `/products?sort=category,-price` |
 
+---
+transition: slide-left
+---
+
+# Exercise: Query Strings 
 
 ---
 layout: image-right
