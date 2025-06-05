@@ -97,6 +97,23 @@ REST is resource-oriented so endpoints should represent Collections or individua
 transition: slide-left
 ---
 
+# param `users/99` vs. query `users?id=99`?
+
+- Use Path Parameters `/users/99`
+1. Semantic Meaning
+   - path parameters indicate specific resources
+2. Consistent with REST conventions
+   - REST treats URLS as a hierarchy of resources (`/users`  > collections), not operations
+3. Better for routing
+   - Frameworks like Express handle path params more naturally `app.get('/users/:id'...)`
+4. Cleaner and easier to cache
+   - URLs like `/users/99` are more cache-friendly and search engine friendly than `/users?id=99`
+- Query parameters like `/users?id=99` are more ambigious (are we filtering? searching? selecting multiple?)
+
+---
+transition: slide-left
+---
+
 # Exercise: Rename the endpoints
 Rewrite each API endpoint to use clear, consistent naming and plural nouns
 
