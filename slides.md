@@ -16,9 +16,9 @@ transition: slide-left
 mdc: true
 ---
 
-# Cyber Security 
+# API Design + Wrap up
+Full-Stack Development - part 8/8
 
-API Design + Wrap up - part 8/8
 
 - [ ] Best Practices when Designing APIs
 - [ ] Practice API design
