@@ -130,13 +130,60 @@ Rewrite each API endpoint to use clear, consistent naming and plural nouns
 transition: slide-left
 ---
 
-# O
+# Use Idempotent APIs for reliability (pg.1)
+An API call is idempotent if making the same call multiple times produces the same result as making it once.
+
+- Prevents unintended consequences from retries (e.g., network timeouts)
+- Makes APIs safe, predictable, and easier to test/debug.
+
+| Method   | Idempotent?  | Notes                                                                                 |
+| -------- | ------------ | ------------------------------------------------------------------------------------- |
+| `GET`    | ✅ Yes        | Reads data only                                                                       |
+| `PUT`    | ✅ Yes        | Replaces resource with same result each time                                          |
+| `DELETE` | ✅ Yes        | Multiple deletes of same resource = same end state                                    |
+| `POST`   | ❌ No         | Creates a new resource each time (unless you design it to be idempotent with a token) |
+| `PATCH`  | ⚠️ Sometimes | Depends on implementation        |
 
 ---
 transition: slide-left
 ---
 
-# C
+# Use Idempotent APIs for reliability (pg.2)
+
+- ✅ PUT `/users/99 {name: "Alice"}`
+   - Replaces user 99 with same data every time
+- ❌ POST `/users {name: "Alice"}`
+   -  Creates a new user each time, even with same data
+- POST is inherently non-idempotent since it implies create a new action or change the state in a unique way every time.
+   - Servers may treat each POST as a separate operation, even if the URL suggests "deletion."
+- Anti-patterns to avoid:
+   - `POST /users/99/edit` — Not RESTful and not idempotent
+      - But didn't our express app uses such routes?
+      - This approach is okay for a server-rendered Express app when using templating engines like EJS because **you're serving web pages, not JSON**
+      - `GET /users/99/edit` is a view that shows HTML form to edit user, not a resource endpoint
+
+
+---
+transition: slide-left
+---
+
+# Exercise: Make this Idempotent if possible
+
+| Endpoint           | Method   | Idempotent? (Yes/No) | If No, How to Fix It |
+| ------------------ | -------- | -------------------- | -------------------- |
+| `/users/45`        | `PUT`    |                      |                      |
+| `/users`           | `POST`   |                      |                      |
+| `/users/45/delete` | `POST`   |                      |                      |
+| `/cart/checkout`   | `POST`   |                      |                      |
+| `/users/45`        | `DELETE` |                      |                      |
+
+<!--
+1. Yes. PUT replaces the resource with the same data every time.
+2. No, Use PUT /users/45 if the client knows the ID, or use an idempotency key in the header for repeated requests.
+3. No, Replace with DELETE /users/45, which is the correct, idempotent HTTP method.
+4. No, Use idempotency keys or create a unique checkoutSessionId to prevent duplicate processing.
+5. Yes, Multiple deletes of the same resource result in the same final state (resource gone).
+-->
 
 ---
 transition: slide-left
