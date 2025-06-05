@@ -138,7 +138,7 @@ An API call is idempotent if making the same call multiple times produces the sa
 
 | Method   | Idempotent?  | Notes                                                                                 |
 | -------- | ------------ | ------------------------------------------------------------------------------------- |
-| `GET`    | ✅ Yes        | Reads data only                                                                       |
+| `GET`    | ✅ Yes        | Reads data only - idempotent by default    |
 | `PUT`    | ✅ Yes        | Replaces resource with same result each time                                          |
 | `DELETE` | ✅ Yes        | Multiple deletes of same resource = same end state                                    |
 | `POST`   | ❌ No         | Creates a new resource each time (unless you design it to be idempotent with a token) |
@@ -161,7 +161,6 @@ transition: slide-left
       - But didn't our express app uses such routes?
       - This approach is okay for a server-rendered Express app when using templating engines like EJS because **you're serving web pages, not JSON**
       - `GET /users/99/edit` is a view that shows HTML form to edit user, not a resource endpoint
-
 
 ---
 transition: slide-left
