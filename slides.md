@@ -18,11 +18,11 @@ mdc: true
 
 # Cyber Security 
 
-Full-Stack Development - part 7/8
+API Design + Wrap up - part 8/8
 
-- [ ] CyberSecurity Importance
-- [ ] Hacker Stories; Lessons learned
-- [ ] General Principles
+- [ ] Best Practices when Designing APIs
+- [ ] Practice API design
+- [ ] Midterm Q&A
 
 <div class="abs-br m-6 text-xl">
   <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
