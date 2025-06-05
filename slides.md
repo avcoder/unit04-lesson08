@@ -398,8 +398,46 @@ transition: slide-left
 # Use Resource Cross References
 Instead of embedding full resource objects in a response or request, you should reference related resources by ID or URI
 
-- ❌ `/api/v1/items?card_id=123&item_id=321`
-- ✅ `/api/v1/carts/123/items/321`
+- Keeps responses lightweight
+- Favours linking over embedding unless tight coupling is required
+- Avoids circular references
+- In requests:
+  - ❌ `/api/v1/items?card_id=123&item_id=321`
+  - ✅ `/api/v1/carts/123/items/321`
+- In responses:
+  ```js
+  // ✅
+  {
+    "id": "order-123",
+    "customer": "/customers/456",
+    "items": ["/products/789", "/products/101"]
+  }
+  ```
+
+---
+transition: slide-left
+---
+
+# Exercise: Resource Cross References
+
+- You are developing a REST API for a university management system. The main resources are:
+`/students`, `/courses`, `/instructors`
+- Each student can enroll in multiple courses, and each course is taught by one instructor.
+- `[ /students/1001 ] --enrolledIn--> [ /courses/CS101 ] --taughtBy--> [ /instructors/88 ]`
+- Fill in the responses below:
+  ```js
+  { // GET /students/1001
+    "id": "1001",
+    "name": "Jamie Rivera",
+    "enrolled_courses":  _______________________ 
+  }
+
+  {  // GET /courses/CS101
+    "code": "CS101",
+    "title": "Intro to Computer Science",
+    "instructor": _______________________
+  }
+  ```
 
 ---
 layout: image-right
