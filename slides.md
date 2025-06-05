@@ -38,8 +38,29 @@ transition: slide-left
 ---
 
 # What is good API design?
+Think endpoints that outputs pure JSON (no ejs server side pages)
 
+- Analogy: Imagine if every car manufacturer placed the brake pedal in a different spot
+- A well-designed API is like a standard car dashboard: intuitive, consistent, and safe to use.
+- APIs are the interfaces through which developers interact with your system.
+- Just like a good UI helps users accomplish tasks easily, a good API helps developers integrate, extend, and trust your product
+- https://www.openapis.org/
+1. Improves Developer Experience (DX)
+1. Encourages Consistency and Scalability
+1. Reduces Bugs and Misuse
+1. Enhances Collaboration and Onboarding
+1. Supports Automation and Tooling
+1. Future-Proofing
 
+<!--
+1. Easier to learn: Developers can guess endpoints and behaviors without constantly reading docs.
+2. If you follow patterns (e.g., GET /users, POST /users), your API becomes predictable.
+Teams can scale without needing deep context on every route.
+3. Clear design means less room for misunderstanding.
+4. Makes your API easier to extend and maintain over time.
+5. Well-designed APIs can be more easily described using OpenAPI/Swagger.
+6. A well-thought-out design helps avoid breaking changes.
+-->
 ---
 transition: slide-left
 ---
@@ -61,13 +82,32 @@ Use clear, meaningful, concise names that mirrors real-world resources
 transition: slide-left
 ---
 
-# B
+# Use Plural Nouns
+REST is resource-oriented so endpoints should represent Collections or individual items
+
+| Operation | Bad Endpoint  | Good Endpoint |
+| --------- | ------------- | ------------------------ |
+| Get all   | `/booklist`, `/getBooks` | `/books`      |
+| Get one   | `/book?id=1`             | `/books/1`    |
+| Create    | `/addBook`               | `POST /books` |
+
+- clearer for developers and more consistent with HTTP semantics
 
 ---
 transition: slide-left
 ---
 
-# P
+# Exercise: Rename the endpoints
+Rewrite each API endpoint to use clear, consistent naming and plural nouns
+
+| Old Endpoint              | Operation         |
+| ------------------------- | ----------------- |
+| `/getAllTheUsersNow`      | Get all users     |
+| `/addNewUserDetails`      | Create a user     |
+| `/fetchBookInfo?id=10`    | Get a book by ID  |
+| `/deleteAccountRecord/99` | Delete an account |
+| `/postNewCommentData`     | Create a comment  |
+| `/itemList`               | List items        |
 
 ---
 transition: slide-left
