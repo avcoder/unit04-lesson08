@@ -440,6 +440,29 @@ transition: slide-left
   ```
 
 ---
+transition: slide-left
+---
+
+# Alternative ways to designing APIs (pg.1)
+
+| Approach                         | Description                                                                                             | Pros                                                      | Cons                                                         | Tools / Notes                          |
+|---------------------------------|-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------|--------------------------------------------------------------|--------------------------------------|
+| **Mocking JSON First**           | Start by mocking JSON data to define API responses early. Allows frontend and backend parallel work. | - Speeds up frontend/backend parallel development<br>- Encourages API contract design<br>- Easy testing and iteration | - Mocks may diverge from real backend if not updated         | Postman, JSON Server, MSW, MirageJS  |
+| **API-First Design (OpenAPI)**  | Define API contract/spec first with OpenAPI/Swagger, then generate mocks and stubs.                   | - Generates documentation and tests<br>- Avoids miscommunication | - Steeper initial setup                                        | OpenAPI, Swagger                     |
+
+---
+transition: slide-left
+---
+
+# Alternative ways to designing APIs (pg.2)
+
+| Approach                         | Description                                                                                             | Pros                                                      | Cons                                                         | Tools / Notes                          |
+|---------------------------------|-----------------------------------------------------------------------------------------------------|-----------------------------------------------------------|--------------------------------------------------------------|--------------------------------------|
+| **Backend-First Development**   | Build real backend endpoints first, then frontend connects to live API.                              | - Produces working real data early                          | - Slows frontend development<br>- Tight coupling              | Frameworks like Express, Django       |
+| **Frontend-First with Local Mocks** | Develop UI with local mock data in component/state without real API initially.                        | - Rapid prototyping and UI validation                       | - Risk of frontend/backend divergence                          | React state, fixtures, Storybook      |
+| **Best Practice: Combine Approaches** | Start with API contract, mock endpoints for frontend dev, build real backend incrementally.          | - Maintains agility<br>- Keeps frontend/backend in sync    | - Requires discipline to keep mocks and real API aligned      | Mix of above tools                   |
+
+---
 layout: image-right
 transition: slide-left
 image: /assets/api.png
