@@ -193,7 +193,7 @@ transition: slide-left
 Versioning is a technique to manage changes in an API without breaking existing users.
 
 - Prevents breaking existing clients
-- Enables incremental improvements
+- Enables incremental improvements, and backward compatibility
 - Allows parallel development
 - Otherwise, If not using versioning, will have to use [feature flag tools](https://launchdarkly.com)
 - ✅ Always start with a version `/v1/` even if it's the first release
@@ -229,13 +229,45 @@ Decide if versioning is handled correctly. If not, rewrite the endpoints
 transition: slide-left
 ---
 
-# T
+# Use Pagination
+
+- split large collections of data into manageable chunks; reduces bandwidth usage; speeds up response times; enables better UX for frontend (ex: infinite scrolling OR "Load more")
+- ✅ Always limit the number of items returned
+- ✅ Include metadata: total count, next page link, etc.
+- ✅ Use reasonable defaults (limit=20, max=100)
+
+| Technique        | Example                     | Pros                                      | Cons                           |
+| ---------------- | --------------------------- | ----------------------------------------- | ------------------------------ |
+| Offset-based | `/users?limit=10&offset=20` | Simple to implement                       | Can have gaps with deletions   |
+| Page-based   | `/users?page=3&pageSize=10` | Easy for users                            | Inconsistent data with updates |
+| Cursor-based | `/users?after=abc123`       | Consistent results, better for large data | Harder to implement and debug  |
+
+
 
 ---
 transition: slide-left
 ---
 
-# G
+# Exercise: Pagination
+Rewrite these endpoints using offset-based pagination with limit and offset
+
+- Why is returning all data at once a bad idea?
+- What problems could occur if you use offset-based pagination with real-time data?
+
+| Original                   | Goal |
+| -------------------------- | --------------- |
+| `/users`                   | Fetch first 20 users. Clients can adjust offset to paginate forward |
+| `/orders`                  | Fetch 50 orders starting from 101st |
+| `/products?category=books` | Applies pagination to a filtered list |
+
+
+<!--
+1. /users?limit=20&offset=0 
+2. /orders?limit=50&offset=100 Helps prevent large responses.
+3. /products?category=books&limit=10&offset=30
+
+2. If New records are inserted or deleted between requests, The same offset may return inconsistent or overlapping results, Or skip records entirely.
+-->
 
 ---
 transition: slide-left
