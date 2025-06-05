@@ -139,7 +139,7 @@ An API call is idempotent if making the same call multiple times produces the sa
 | Method   | Idempotent?  | Notes                                                                                 |
 | -------- | ------------ | ------------------------------------------------------------------------------------- |
 | `GET`    | ✅ Yes        | Reads data only - idempotent by default    |
-| `PUT`    | ✅ Yes        | Replaces resource with same result each time                                          |
+| `PUT`    | ✅ Yes        | Replaces resource with same result each time - typically is idempotent |
 | `DELETE` | ✅ Yes        | Multiple deletes of same resource = same end state                                    |
 | `POST`   | ❌ No         | Creates a new resource each time (unless you design it to be idempotent with a token) |
 | `PATCH`  | ⚠️ Sometimes | Depends on implementation        |
