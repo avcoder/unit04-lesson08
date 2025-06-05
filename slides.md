@@ -33,12 +33,29 @@ Full-Stack Development - part 8/8
 <!--
 -->
 
+---
+transition: slide-left
+---
+
+# What is good API design?
+
 
 ---
 transition: slide-left
 ---
 
-# W
+# Use Clear Naming
+Use clear, meaningful, concise names that mirrors real-world resources
+
+- What makes an API easy or hard to understand?
+- ❌ `/getTheUserInfoNow`
+- ✅ `/users`
+- ❌ `/processTransactionData`
+- ✅ `/transactions`
+- avoid implementation details
+- use lowercase, hyphenated or camelCase consistently
+- avoid vague terms like `/data`, `/info`, `/stuff`
+
 
 ---
 transition: slide-left
@@ -92,7 +109,19 @@ transition: slide-left
 transition: slide-left
 ---
 
-# I
+# Exercise: Fix APIs
+Identify issues and refactor APIs using best practices as discussed.
+
+
+| Operation | Method | Endpoint                    |
+| ------ | ------ | --------------------------- |
+| List users | GET    | `/getAllUsers`              |
+| Create user | POST   | `/addNewUser`               |
+| Get user by ID | GET    | `/userById?id=123`          |
+| Delete user | DELETE | `/deleteAUser/123`          |
+| Update user | PUT    | `/updateUserDetails?id=123` |
+| List items | GET    | `/getAllItems?version=1` |
+
 
 ---
 layout: image-right
