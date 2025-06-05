@@ -430,69 +430,13 @@ class: text-left
 transition: slide-left
 ---
 
-# Sa
+# Exercise: Design API endpoints
 
-- W
-
----
-transition: slide-left
----
-
-# Ma
-
-- oc
-
----
-transition: slide-left
----
-
-# C
-
-- A
-
----
-transition: slide-left
----
-
-# S
-
-
-
----
-transition: slide-left
----
-
-# O
-
----
-transition: slide-left
----
-
-# A
-
----
-transition: slide-left
----
-
-# C
-
----
-transition: slide-left
----
-
-# C
-
----
-transition: slide-left
----
-
-# D
-
----
-transition: slide-left
----
-
-# T
+- Pick a social media app you use and observe the UI on how to make a post.  For example:
+<img src="/assets/twitter.png">
+- Putting everything you've learned in this unit together, create an express app that provides  JSON via API endpoints for the app you've chosen (no ejs)
+- Create API endpoints that will take care of any CRUD operations necessary to make a post
+- ex: In my twitter screenshot, I have to think about getting/posting text, images, gifs, polls etc.
 
 ---
 transition: slide-left
@@ -502,7 +446,6 @@ transition: slide-left
 
 - Opportunity to work on it in class
 - Opportunity to have 1:1 with me
-- Exercise: summarize our unit by creating a [Movie Ratings and Review app](https://courses.circuitstream.com/d2l/le/lessons/9514/topics/49843)
 
 ---
 transition: slide-left
@@ -510,3 +453,4 @@ transition: slide-left
 
 # Homework
 - Work on your "Note-taking" midterm app due June 15 midnight EST
+- Exercise: summarize our unit by creating a [Movie Ratings and Review app](https://courses.circuitstream.com/d2l/le/lessons/9514/topics/49843)
