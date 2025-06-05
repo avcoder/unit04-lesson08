@@ -222,7 +222,7 @@ Researcher discovered a vulnerability in Instagram's one-time-password recovery 
 ---
 layout: image-right
 transition: slide-left
-image: /assets/swizec.png
+image: /assets/api.png
 backgroundSize: 400px 270px
 class: text-left
 ---
@@ -230,12 +230,12 @@ class: text-left
 # 10 minute break
 
 🍦 Cool Tips, Trends and Resources:
-- 💻 [Darknet Diaries](https://darknetdiaries.com/)
-- 😱 [Spooky Web Dev Horror Stories 1](https://syntax.fm/show/840/spooky-web-dev-horror-stories-part-1)
-- 💀 [Spooky Web Dev Horror Stories 2](https://syntax.fm/show/841/spooky-web-dev-horror-stories-part-2)
-- 🙀 [Coding Horror Stories 2023 1](https://syntax.fm/show/683/spooky-coding-horror-stories-2023-part-1)
-- 👻 [Coding Horror Stories 2023 2](https://syntax.fm/show/684/spooky-coding-horror-stories-2023-part-2)
-- ⬛ [Sneakers: Black box scene](https://www.youtube.com/watch?v=EKuwyH1UeYw)
+- 🔵 [SVG Icons for popular brands](https://simpleicons.org/)
+- 🔄 [Modern CSS Reset](https://www.joshwcomeau.com/css/custom-css-reset/)
+- ⭐ [2024 JavaAscript Rising Stars](https://risingstars.js.org/2024/en)
+- 👨‍💻 [Computer Science Papers](https://newsletter.techworld-with-milan.com/p/computer-science-papers-every-developer)
+- 💾 [Intro to WebAssembly](https://hemath.dev/blog/webassembly/introduction-to-webassembly/)
+- 💽 [GraphQL: API Design](https://www.computer.org/publications/tech-news/trends/graphql)
 
 <br>
 <hr>
