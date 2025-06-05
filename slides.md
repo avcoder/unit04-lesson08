@@ -328,8 +328,8 @@ transition: slide-left
 # Exercise: Query Strings 
 Identify what’s unclear or non-standard in the following URLs
 
-- Why should filter parameters match database or schema field names (e.g., status=active)?
-- What problems might arise if different endpoints use different query names for the same concept?
+- Why should filter parameters match public-facing, safe database fields or schema field names (e.g., status=active)?
+- Are there any fields we should not allow filtering by?
 
 | URL                                       | What’s Wrong? |
 | ----------------------------------------- | ------------- |
@@ -345,7 +345,61 @@ Identify what’s unclear or non-standard in the following URLs
 3. Two separate parameters to express one intent. Use a single sort=-price 
 4. active=yes is unclear — boolean values should be consistent (true/false)
 5. Uses a non-standard sort format. Colon-based values (:) can cause confusion and require extra parsing. /posts?sort=-date_created
+
+You should not allow filtering by: passwordHash, isSuperAdmin, internalFlag, Any field that would reveal sensitive logic
 -->
+
+---
+transition: slide-left
+---
+
+# Use Security in API Early in Development
+ 
+- ✅ Use authentication & authorization on every endpoint
+- ✅ Validate & sanitize all input (body, query, headers)
+- ✅ Use HTTPS only — never expose APIs over HTTP
+- ✅ Return generic error messages (avoid revealing stack traces)
+- ✅ Rate limit and throttle sensitive routes
+
+| Risk                         | Example                                              |
+| ---------------------------- | ---------------------------------------------------- |
+| **No authentication**        | Anyone can call `/users` or `/orders`                |
+| **Insecure endpoints**       | `DELETE /users/99` allowed without permission checks |
+| **Lack of rate limiting**    | APIs are vulnerable to brute-force or DDoS           |
+| **Unvalidated input**        | SQL/NoSQL injection, XSS via query strings or JSON   |
+
+---
+transition: slide-left
+---
+
+# Exercise: Security in APIs
+Identify what’s wrong from a security perspective.
+
+| Endpoint                                   | What’s Wrong? |
+| ------------------------------------------ | ------------- |
+| `GET /users` (public)                      |               |
+| `POST /users` (no auth)                    |               |
+| `DELETE /users/99` (open to all)           |               |
+| `POST /login` returns stack trace on error |               |
+| `GET /orders?status=shipped OR 1=1`        |               |
+
+<!--
+1. No authentication — exposing all user data publicly is a security risk.
+2. needs auth checks, rate limiting 
+3. Deleting users should be restricted to authenticated and authorized roles only
+4. Revealing stack traces gives attackers insight into internal structure. Show generic error instead
+5. This suggests injection (e.g., NoSQL or SQL). User input is not being sanitized or validated.
+-->
+
+---
+transition: slide-left
+---
+
+# Use Resource Cross References
+Instead of embedding full resource objects in a response or request, you should reference related resources by ID or URI
+
+- ❌ `/api/v1/items?card_id=123&item_id=321`
+- ✅ `/api/v1/carts/123/items/321`
 
 ---
 layout: image-right
@@ -444,7 +498,11 @@ transition: slide-left
 transition: slide-left
 ---
 
-# 3
+# Midterm Q & A
+
+- Opportunity to work on it in class
+- Opportunity to have 1:1 with me
+- Exercise: summarize our unit by creating a [Movie Ratings and Review app](https://courses.circuitstream.com/d2l/le/lessons/9514/topics/49843)
 
 ---
 transition: slide-left
