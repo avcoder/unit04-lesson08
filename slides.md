@@ -442,15 +442,11 @@ transition: slide-left
 transition: slide-left
 ---
 
-# Midterm Q & A
+# Work Period
 
-- Opportunity to work on it in class
-- Opportunity to have 1:1 with me
-
----
-transition: slide-left
----
-
-# Homework
+- I'll create breakout rooms which you can freely choose to enter
+- Opportunity to work on midterm in class
+- Opportunity to have 1:1 with me re: midterm or any questions 
+   - DM me if you want to meet in a breakout room
 - Work on your "Note-taking" midterm app due June 15 midnight EST
 - Exercise: summarize our unit by creating a [Movie Ratings and Review app](https://courses.circuitstream.com/d2l/le/lessons/9514/topics/49843)
