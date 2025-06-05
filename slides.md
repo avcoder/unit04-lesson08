@@ -326,6 +326,26 @@ transition: slide-left
 ---
 
 # Exercise: Query Strings 
+Identify what’s unclear or non-standard in the following URLs
+
+- Why should filter parameters match database or schema field names (e.g., status=active)?
+- What problems might arise if different endpoints use different query names for the same concept?
+
+| URL                                       | What’s Wrong? |
+| ----------------------------------------- | ------------- |
+| `/users?orderBy=1`                        |               |
+| `/items?filterByType=book`                |               |
+| `/products?sort=desc&by=price`            |               |
+| `/search?category=electronics&active=yes` |               |
+| `/posts?order=date_created:desc`          |               |
+
+<!--
+1. orderBy=1 is ambiguous. What field are we ordering by? Is 1 ascending or descending? /users?sort=name or /users?sort=-createdAt
+2. filterByType is non-standard and verbose. Should just use the field name directly /items?type=book
+3. Two separate parameters to express one intent. Use a single sort=-price 
+4. active=yes is unclear — boolean values should be consistent (true/false)
+5. Uses a non-standard sort format. Colon-based values (:) can cause confusion and require extra parsing. /posts?sort=-date_created
+-->
 
 ---
 layout: image-right
