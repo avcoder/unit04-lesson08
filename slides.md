@@ -167,6 +167,8 @@ transition: slide-left
 
 # Exercise: Make this Idempotent if possible
 
+- Why is it dangerous if a non-idempotent API gets retried during a network issue?
+
 | Endpoint           | Method   | Idempotent? (Yes/No) | If No, How to Fix It |
 | ------------------ | -------- | -------------------- | -------------------- |
 | `/users/45`        | `PUT`    |                      |                      |
@@ -187,13 +189,41 @@ transition: slide-left
 transition: slide-left
 ---
 
-# C
+# Use Versioning
+Versioning is a technique to manage changes in an API without breaking existing users.
+
+- Prevents breaking existing clients
+- Enables incremental improvements
+- Allows parallel development
+- Otherwise, If not using versioning, will have to use [feature flag tools](https://launchdarkly.com)
+- ✅ Always start with a version `/v1/` even if it's the first release
+- ✅ Keep old versions running until usage drops off
+- ✅ Document version differences clearly
+- ✅ Avoid changing existing behaviour without bumping the version
+- ✅ Use semantic versioning in docs (v1.2, v2.0), but keep URLs simple (v1, v2).
 
 ---
 transition: slide-left
 ---
 
-# H
+# Exercise: Versioning 
+Decide if versioning is handled correctly. If not, rewrite the endpoints
+
+| Endpoint           | Problem | Improved Endpoint |
+| ------------------ | ------- | ------- |
+| `/getProducts`           |         ||
+| `/createUser` |         ||
+| `/orders/submit`        |         ||
+| `/api/users` |         ||
+| `/v3.1/customers` |         ||
+
+<!--
+1. /v1/products Use resource noun (products), remove verb, and add version prefix.
+2. /v1/users Use POST to /v1/users for creating a user — verb in path is removed
+3. /v1/orders This is a creation action — should be POST /v1/orders, not a custom verb like submit.
+4. /v1/users Remove the generic /api prefix (optional) and explicitly add a version.
+5. /v3/customers Simplify versioning to major version only in the URI; minor/patch versions can go in docs or headers if needed.
+-->
 
 ---
 transition: slide-left
