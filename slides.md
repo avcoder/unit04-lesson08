@@ -229,7 +229,7 @@ Decide if versioning is handled correctly. If not, rewrite the endpoints
 transition: slide-left
 ---
 
-# Use Pagination
+# Use Pagination (pg.1)
 
 - split large collections of data into manageable chunks; reduces bandwidth usage; speeds up response times; enables better UX for frontend (ex: infinite scrolling OR "Load more")
 - ✅ Always limit the number of items returned
@@ -242,6 +242,39 @@ transition: slide-left
 | Page-based   | `/users?page=3&pageSize=10` | Easy for users                            | Inconsistent data with updates |
 | Cursor-based | `/users?after=abc123`       | Consistent results, better for large data | Harder to implement and debug  |
 
+---
+transition: slide-left
+---
+
+# Use Pagination (pg.2)
+
+```js
+app.get('/users', async (req, res) => { // GET /users?limit=10&page=2
+    // Parse query params with defaults
+    const limit = parseInt(req.query.limit) || 10;
+    const page = parseInt(req.query.page) || 1;
+
+    const skip = (page - 1) * limit;     // Calculate how many documents to skip
+
+    const users = await User.find() // Query the database with pagination
+      .skip(skip)
+      .limit(limit)
+      .sort({ createdAt: -1 }); // Optional: sort newest first
+
+    const total = await User.countDocuments();     // Get total count for metadata
+
+    res.json({
+      data: users,
+      pagination: {
+        total,
+        page,
+        limit,
+        totalPages: Math.ceil(total / limit),
+        hasNextPage: page * limit < total,
+      }
+    }) 
+});
+```
 
 
 ---
